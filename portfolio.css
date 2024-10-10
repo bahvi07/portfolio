@@ -1,0 +1,398 @@
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section layout */
+.section {
+  height: 100vh; /* Full height for each section */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.897);
+  border-bottom: 1px solid #46f012; /* Divider between sections */
+}
+
+.fas {
+  margin-right: 10px;
+}
+
+.nav-item {
+  margin-right: 15px;
+}
+
+.navbar {
+  background-color: #0202025e;
+  box-shadow: 0px 3px 10px #46f012;
+}
+
+.nav-link {
+  color: #ffffff !important; /* White text */
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #adb5bd !important; /* Light grey on hover */
+  transform: scale(1.1); /* Scale up the text */
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ffffff !important; /* White text for brand */
+}
+
+.navbar-brand:hover {
+  color: #adb5bd !important; /* Light grey on hover for brand */
+  transform: scale(1.1); /* Scale up the text */
+}
+
+#home {
+  position: relative; /* Set position to relative */
+  overflow: hidden; /* Ensure no overflow */
+}
+
+#home::before {
+  content: ''; /* Empty content for pseudo-element */
+  position: absolute; /* Position it absolutely */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('hack.gif') no-repeat center center/cover;
+  filter: blur(2px);
+  z-index: -1; /* Ensure it stays behind content */
+}
+
+.section {
+  z-index: 1;
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards; /* Adjust duration as needed */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+.about-content {
+  padding:0 20px;
+  margin-top: 20px; /* Space above content */
+  display: flex; /* Use Flexbox for layout */
+  justify-content: space-between; /* Space between content and image */
+  align-items: center; /* Center vertically */
+  flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+  text-align: justify;
+}
+
+.about-content p {
+  padding-top: 0; 
+  flex: 1; /* Allow paragraph to grow and take available space */
+  margin-right: 20px; /* Space between the text and the image */
+}
+
+.me {
+  height: 250px; /* Image height */
+  width: 300px; /* Image width */
+  box-shadow: 0px 5px 10px rgba(70, 240, 18), 0px -5px 10px rgba(70, 240, 18); /* Shadow on all sides */
+  border-radius: 15px;
+  display: block; /* Ensure it behaves as a block element */
+  margin: auto; /* Center it horizontally if needed */
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+  .about-content {
+    padding:0 20px;
+    flex-direction: column; /* Stack content vertically on small screens */
+    align-items: center; /* Center items */
+  }
+
+  .about-content p {
+    margin-right: 0; /* Remove right margin */
+  
+  margin-bottom: 20px; /* Space below paragraph */
+    text-align: center; /* Center text */
+    text-align: justify;
+  }
+
+  .me {
+    width: 100%; /* Make the image responsive */
+    max-width: 250px; /* Limit the maximum width of the image */
+  margin-bottom: 50px;
+  }
+}
+#skills {
+  position: relative;
+  overflow: hidden;
+  color: black;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.897);
+}
+
+
+
+/* Flexbox container for skills */
+.skills-container {
+  display: flex;
+  height: 70vh;
+  position: relative;
+}
+
+/* Technical Skills and Current Learning Goals */
+.technical-skills, .current-learning-goals {
+  width: 50%;
+  padding: 20px;
+  position: relative;
+}
+
+.technical-skills {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.current-learning-goals {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Adjusted Diagonal divider */
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px; /* Reduced width */
+  left: calc(51% - 6%); /* Keep it centered with respect to both sections */
+  transform: skewX(-20deg); /* Apply diagonal skew */
+  background-color: #46f012;
+  z-index: 1;
+}
+
+/* Headings and text styles */
+#skills h2 {
+  margin-bottom: 20px;
+  color: whitesmoke;
+}
+
+#skills h3 {
+  margin-top: 20px;
+  border-bottom: 4px solid #46f012;
+  padding-bottom: 5px;
+}
+
+#skills ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#skills li {
+  margin: 10px 0;
+}
+
+#skills a {
+  color: #46f012;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#skills a:hover {
+  color: #adb5bd;
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .skills-container {
+    flex-direction: column;
+    height: auto;
+    border-radius: 0;
+    
+  }
+
+  .technical-skills, .current-learning-goals {
+    width: 100%;
+    padding: 10px;
+    padding:10px 20px;
+  }
+.technical-skills{
+  border-radius: 0;
+}
+.current-learning-goals{
+  border-radius: 0;
+}
+  .divider {
+    display: none; /* Hide diagonal divider on smaller screens */
+  }
+
+  #skills h2 {
+    font-size: 24px;
+  }
+
+  #skills h3 {
+    font-size: 18px;
+  }
+
+  #skills {
+    font-size: 16px;
+  }
+}
+/* General section styles */
+#projects {
+  padding: 60px 20px; /* Increase padding for better spacing */
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.897);
+  color: whitesmoke;
+  height: auto; /* Allow section to expand based on content */
+}
+
+/* Grid layout for masonry */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.project-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.project-item h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #46f012;
+}
+
+.project-item p {
+  font-size: 16px;
+  color: #dfdfdf;
+}
+
+.project-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Contact section */
+#contact {
+  height: max-content;
+  padding: 60px 20px; /* Add more padding for spacing */
+  background-color: rgba(0, 0, 0, 0.9);
+  color: whitesmoke;
+  text-align: center;
+}
+
+#contact h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #46f012;
+}
+
+/* Flex container for contact info and social links */
+.contact-container {
+  display: flex;
+  justify-content: space-between; /* Space between the two columns */
+  margin-bottom: 40px; /* Space below the container */
+}
+
+/* Contact info and social links */
+.contact-info, .social-links {
+  width: 48%; /* Adjust width for each column */
+  text-align: justify;
+}
+.contact-info{
+  margin: 0 60px 0 130px;
+}
+.contact-info p,
+.social-links p {
+  margin-bottom: 15px; /* Space below paragraphs */
+}
+
+.contact-info ul, .social-links ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* Reset margin */
+}
+
+/* Display social links as a column */
+.social-links ul {
+  display: flex;
+  flex-direction: column; /* Change to column layout */
+  align-items: flex-start; /* Align links to the left */
+}
+
+.contact-info li, .social-links li {
+  margin: 10px 0; /* Adjust margin for spacing between links */
+}
+
+.social-links a {
+  color: #46f012;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.social-links a:hover {
+  color: #adb5bd;
+}
+
+/* Adjust input box height */
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 8px; /* Decrease padding for shorter height */
+  margin: 15px 0;
+  border: 1px solid #46f012;
+  border-radius: 5px;
+  font-size: 16px; /* Optionally adjust font size for better aesthetics */
+}
+
+.contact-form button {
+  background-color: #46f012;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 10px 20px; /* Decrease padding for button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #adb5bd;
+}
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* Stack columns on small screens */
+    align-items: center; /* Center align items */
+    text-align: justify;
+    padding: 10px;
+  }
+
+  .contact-info, .social-links {
+    width: 100%; /* Full width for each section */
+    margin: 0;
+    margin-bottom: 20px;
+  }
+}
+footer{
+  margin-top: 30px;
+}
